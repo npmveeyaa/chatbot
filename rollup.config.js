@@ -3,6 +3,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
+import url from '@rollup/plugin-url';
 
 export default {
   input: 'src/index.js',
@@ -20,6 +21,12 @@ export default {
   ],
   plugins: [
     peerDepsExternal(),
+    url({
+      include: ['**/*.svg'],
+      limit: 0,
+      emitFiles: true,
+      publicPath: './'
+    }),
     resolve({
       extensions: ['.js', '.jsx', '.json']
     }),

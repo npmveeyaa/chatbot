@@ -17,6 +17,13 @@
   left: 20px;
 }
 
+/* Ensure container doesn't overflow */
+.veeyaa-chatbot-container {
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: visible;
+}
+
 /* Toggle Button */
 .veeyaa-chatbot-toggle {
   width: 60px;
@@ -46,7 +53,9 @@
   position: absolute;
   bottom: 80px;
   width: 380px;
+  max-width: calc(100vw - 40px);
   height: 500px;
+  max-height: calc(100vh - 120px);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -56,11 +65,13 @@
 }
 
 .veeyaa-chatbot-bottom-left .veeyaa-chatbot-window {
-  right: 0;
+  left: 0;
+  right: auto;
 }
 
 .veeyaa-chatbot-bottom-right .veeyaa-chatbot-window {
-  left: 0;
+  right: 0;
+  left: auto;
 }
 
 @keyframes slideUp {
@@ -97,6 +108,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.veeyaa-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
 }
 
 .veeyaa-chatbot-header-text h3 {
@@ -276,18 +296,33 @@
 
 /* Responsive */
 @media (max-width: 480px) {
+  .veeyaa-chatbot-container {
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 10px;
+  }
+
+  .veeyaa-chatbot-bottom-left,
+  .veeyaa-chatbot-bottom-right {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%);
+  }
+
   .veeyaa-chatbot-window {
-    width: calc(100vw - 40px);
+    width: calc(100vw - 20px);
     height: calc(100vh - 120px);
     max-height: 500px;
     bottom: 80px;
-    left: 20px !important;
-    right: 20px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%);
   }
 
   .veeyaa-chatbot-bottom-left .veeyaa-chatbot-window,
   .veeyaa-chatbot-bottom-right .veeyaa-chatbot-window {
-    left: 20px !important;
-    right: 20px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%);
   }
 }

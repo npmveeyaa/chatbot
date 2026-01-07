@@ -1,6 +1,6 @@
 {
   "name": "@veeyaainnovatives/chatbot",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A reusable chatbot component for React applications supporting Tawk.to and custom Veeyaa chatbot with route-based visibility",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -42,6 +42,7 @@
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-url": "^8.0.2",
     "rollup": "^4.6.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2"
@@ -55,4 +56,3 @@
     "url": "https://github.com/npmveeyaa/chatbot/issues"
   }
 }
-
